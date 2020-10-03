@@ -922,11 +922,11 @@ as specified in <a data-cite="RFC3986#section-2.1">RFC3986 Section 2.1</a>.
         </table>
 
         <p>
-Implementers as well as <a>DID method</a> specification authors MAY use additional
-DID parameters that are not listed here.
-For maximum interoperability, it is RECOMMENDED that DID parameters use the official
-W3C DID Specification Registries mechanism [[DID-SPEC-REGISTRIES]], to avoid collision
-with other uses of the same DID parameter with different semantics.
+Implementers as well as <a>DID method</a> specification authors MAY use
+additional DID parameters that are not listed here. For maximum
+interoperability, it is RECOMMENDED that DID parameters use the official W3C
+DID Specification Registries mechanism [[DID-SPEC-REGISTRIES]], to avoid
+collision with other uses of the same DID parameter with different semantics.
         </p>
 
         <p>
@@ -948,8 +948,8 @@ did:foo:21tDAKCERh95uGgKbJNHYp?version-time=2002-10-10T17:00:00Z
         </pre>
 
         <p>
-Adding a DID parameter to a <a>DID URL</a> means that the parameter becomes part
-of an identifier for a <a>resource</a> (the <a>DID document</a> or other).
+Adding a DID parameter to a <a>DID URL</a> means that the parameter becomes
+part of an identifier for a <a>resource</a> (the <a>DID document</a> or other).
 Alternatively, the <a>DID resolution</a> and the <a>DID URL dereferencing</a>
 functions can also be influenced by passing input metadata to a <a>DID
 resolver</a> that are not part of the DID URL. (See <a
@@ -967,14 +967,13 @@ dereferenced</i>.
 
         <p>
 DID parameters MAY be used if there is a clear use case where the parameter
-needs to be part of a URI that can be used as a link, or as a <a>resource</a> in
-RDF / JSON-LD documents.
+needs to be part of a URI that can be used as a link, or as a <a>resource</a>
+in RDF / JSON-LD documents.
         </p>
 
         <p>
-DID parameters SHOULD NOT be used if the same functionality can be expressed by
-passing input metadata to a <a>DID resolver</a>, and if there is no need to construct a
-URI for use as a link, or as a <a>resource</a> in RDF / JSON-LD documents.
+It is expected that DID parameters will <em>not</em> be used if the same
+functionality can be expressed by passing input metadata to a DID resolver.
         </p>
 
       </section>
@@ -1026,11 +1025,11 @@ A <a>DID fragment</a> is used as method-independent reference into the <a>DID
 document</a> to identify a component of the document (for example, a unique
 <a>public key description</a> or <a>service endpoint</a>). <a>DID fragment</a>
 syntax and semantics are identical to a generic URI fragment and  MUST conform
-to <a data-cite="RFC3986#section-3.5">RFC&nbsp;3986, section 3.5</a>. To
-dereference a <a>DID fragment</a>, the complete <a>DID URL</a> including the
-<a>DID fragment</a> MUST be used as input to the <a>DID URL dereferencing</a>
-function for the target component in the <a>DID document</a> object. For more
-information, see <a href="#did-url-dereferencing"></a>.
+to <a data-cite="RFC3986#section-3.5">RFC&nbsp;3986, section 3.5</a>.
+        </p>
+        <p>
+For information about how to dereference a <a>DID fragment</a>, see
+<a href="#did-url-dereferencing"></a>.
         </p>
 
         <p>
@@ -3449,12 +3448,11 @@ DID URL Dereferencing
 The DID URL dereferencing function dereferences a <a>DID URL</a> into
 a resource with contents depending on the <a>DID URL</a>'s components,
 including the <a>DID method</a>, method-specific identifier, path, query,
-and fragment. This process depends on <a>DID resolution</a>
-of the <a>DID</a> contained in the <a>DID URL</a>.
-The details of how this
-process is accomplished are outside the scope of this specification, but all
-conformant implementations MUST implement a function which has the
-following abstract form:
+and fragment. This process depends on <a>DID resolution</a> of the <a>DID</a>
+contained in the <a>DID URL</a>.
+The details of how this process is accomplished are outside the scope of this
+specification, but all conformant implementations MUST implement a function
+which has the following abstract form:
         </p>
 
         <p><code>
@@ -3472,18 +3470,18 @@ did-url
             </dt>
             <dd>
 A conformant <a>DID URL</a> as a single string. This is the <a>DID URL</a> to
-dereference.
-This input is REQUIRED.
+dereference. To dereference a <a>DID fragment</a>, the complete <a>DID URL</a>
+including the <a>DID fragment</a> MUST be used. This input is REQUIRED.
             </dd>
             <dt>
 did-url-dereferencing-input-metadata
             </dt>
             <dd>
 A <a href="metadata-structure">metadata structure</a> consisting of input
-options to the <code>dereference</code> function in addition to the <code>did-url</code>
-itself.
-Properties defined by this specification are in <a href="#did-url-dereferencing-input-metadata-properties"></a>.
-This input is REQUIRED, but the structure MAY be empty.
+options to the <code>dereference</code> function in addition to the
+<code>did-url</code> itself. Properties defined by this specification are in
+<a href="#did-url-dereferencing-input-metadata-properties"></a>. This input is
+REQUIRED, but the structure MAY be empty.
             </dd>
         </dl>
 
